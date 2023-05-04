@@ -1,5 +1,6 @@
 "use client";
 
+import DateTime from "@/components/DateTime";
 import { FormEvent, useState } from "react";
 
 interface DoneDoFormInterface extends EventTarget {
@@ -31,14 +32,6 @@ export default function DoneDo() {
     doneDo.value = "";
   };
 
-  const timeFormatting = (time: Date): string => {
-    const hours = String(time.getHours()).padStart(2, "0");
-    const minutes = String(time.getMinutes()).padStart(2, "0");
-    const seconds = String(time.getSeconds()).padStart(2, "0");
-
-    return `${hours}:${minutes}:${seconds}`;
-  };
-
   return (
     <>
       <h1 className="text-9xl font-thin mb-5">Done Do</h1>
@@ -60,7 +53,9 @@ export default function DoneDo() {
                 key={index}
                 className="text-2xl p-2 flex items-center justify-between"
               >
-                <div className="text-xs">{timeFormatting(item.time)}</div>
+                <div className="text-xs">
+                  <DateTime time={item.time} />
+                </div>
                 <div>{item.doneDo}</div>
                 <div className="text-xs">
                   <button>X</button>

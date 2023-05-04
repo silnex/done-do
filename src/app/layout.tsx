@@ -14,7 +14,7 @@ export default function RootLayout({
     <html>
       <body>
         <div className="container">
-          <div className="flex h-screen justify-center items-center">
+          <div className="flex h-screen w-screen justify-center items-center">
             <div>
               {children}
             </div>
